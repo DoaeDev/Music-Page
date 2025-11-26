@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="Hamid.css">
+       <link rel="stylesheet" href="02-index.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" class="stylesheet">
+    <title>Nassim Hadad</title>
+</head>
+<body>
+    
+
+<header class="page-header">
+    <a href="01-index.html" class="back-link">← Back to Home</a>
+</header>
+<div class="player">
+
+    <img id="track-img" src="image/channels4_profile.jpg" alt="music" class="track-img">
+
+    <h2 id="track-name">Alwali Ya Moulay Ahmed</h2>
+    <p id="track-artist">Nassim Hadad</p>
+
+    <audio id="audio-player" ></audio>
+
+   <div class="controls">
+    <i class="fa-solid fa-backward" id="prev"></i>
+    <i class="fa-solid fa-play" id="play"></i>
+    <i class="fa-solid fa-forward" id="next"></i>
+</div>
+
+
+</div>
+
+<script src="Nassim.js"></script>
+
+</body>
+</html>
+<script>
+let tracks = [
+    {
+        img: "image/Nassim-Haddad.jpg",
+        name: " Sid Zouine",
+        artist: "Nassim Haddad",
+        music: "music/nassim2.mp3"
+    },
+    {
+        img: "image/Nassim-Haddad.jpg",
+        name: "Hezzit 3ini LChrajem ",
+        artist: "Nassim Haddad",
+        music: "music/nassim1.mp3"
+    },
+    {
+        img: "image/Nassim-Haddad.jpg",
+        name: "Gualt Liya Na3tik & L'Ghaba",
+        artist: "Nassim Haddad",
+        music: "music/nassim.mp3"
+    }
+];
+
+let index = 0;
+
+const img = document.getElementById("track-img");
+const name = document.getElementById("track-name");
+const artist = document.getElementById("track-artist");
+const audio = document.getElementById("audio-player");
+const playBtn = document.getElementById("play");
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
+
+function loadTrack(i) {
+    img.src = tracks[i].img;
+    name.textContent = tracks[i].name;
+    artist.textContent = tracks[i].artist;
+    audio.src = tracks[i].music;
+}
+
+loadTrack(index);
+
+playBtn.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play();
+        playBtn.classList.replace("fa-play", "fa-pause");
+    } else {
+        audio.pause();
+        playBtn.classList.replace("fa-pause", "fa-play");
+    }
+});
+
+nextBtn.addEventListener("click", () => {
+    index = (index + 1) % tracks.length;
+    loadTrack(index);
+    audio.play();
+    playBtn.classList.replace("fa-play", "fa-pause");
+});
+
+prevBtn.addEventListener("click", () => {
+    index = (index - 1 + tracks.length) % tracks.length;
+    loadTrack(index);
+    audio.play();
+    playBtn.classList.replace("fa-play", "fa-pause");
+});
+</script>
+
+</body>
+</html>
