@@ -10,9 +10,11 @@ body {
     color: rgb(237, 217, 191); 
 }
 .my-header {
-    background: #1a1a1a;
+    background:  #9B111E;
     padding: 15px 0;
     position: sticky;
+    width: 100%;
+    height: 5%;
     top: 0;
     z-index: 300;
     font-weight: bold;
@@ -69,7 +71,7 @@ body {
     background-image: url('760bc386-e84d-44f3-85f6-99bf611c3d2e.png'); 
     background-size: cover;
     background-position: center;
-   
+    height:100%;
     display: flex;
     justify-content: center;
     align-items: center;
